@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>replay_testing</name>
+  <version>0.0.3</version>
+  <description>A testing library and CLI for replaying ROS nodes.</description>
+  <maintainer email="troy@polymathrobotics.com">Troy Gibb</maintainer>
+  <maintainer email="emerson@polymathrobotics.com">Emerson Knapp</maintainer>
+  <license>Apache License 2.0</license>
+  <author email="troy@polymathrobotics.com">Troy Gibb</author>
+  <author email="emerson@polymathrobotics.com">Emerson Knapp</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>python3-pydantic</exec_depend>
+  <exec_depend>python3-termcolor</exec_depend>
+  <exec_depend>python3-boto3</exec_depend>
+
+  <!-- we never mention rclpy directly, but rosbag2_py in Humble doesn't specify its dependency properly -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>ros2bag</exec_depend>
+  <exec_depend>rosbag2_py</exec_depend>
+  <exec_depend>rosbag2_storage_mcap</exec_depend>
+
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>geometry_msgs</test_depend>
+  <test_depend>python3-junitparser</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <test_depend>ros2run</test_depend>
+  <test_depend>ros2topic</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
