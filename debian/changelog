@@ -1,0 +1,17 @@
+ros-rolling-replay-testing (0.0.3-1bookworm) bookworm; urgency=high
+
+  * Added new --analyze [RUN_ID] for rerunning @analyze without re-executing the full replay.
+  * Moved McapFixture to LocalFixture
+  * Remove mcap-ros2-support dependency
+  * Contributors: Troy Gibb, Emerson Knapp
+
+ -- Troy Gibb <troy@polymathrobotics.com>  Thu, 16 Oct 2025 07:00:00 -0000
+
+ros-rolling-replay-testing (0.0.2-1bookworm) bookworm; urgency=high
+
+  * Initial release of replay_testing package
+  * Contributors: Troy Gibb, Eddy Zhou, Emerson Knapp
+
+ -- Troy Gibb <troy@polymathrobotics.com>  Mon, 12 May 2025 07:00:00 -0000
+
+
