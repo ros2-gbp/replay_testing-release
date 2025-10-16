@@ -1,0 +1,12 @@
+Source: ros-humble-replay-testing
+Section: misc
+Priority: optional
+Maintainer: Troy Gibb <troy@polymathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), python3-junitparser <!nocheck>, python3-pytest <!nocheck>, ros-humble-ament-cmake, ros-humble-ament-cmake-pytest <!nocheck>, ros-humble-geometry-msgs <!nocheck>, ros-humble-ros2run <!nocheck>, ros-humble-ros2topic <!nocheck>, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-replay-testing
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-boto3, python3-pydantic, python3-termcolor, ros-humble-launch, ros-humble-rclpy, ros-humble-ros2bag, ros-humble-rosbag2-py, ros-humble-rosbag2-storage-mcap, ros-humble-ros-workspace
+Description: A testing library and CLI for replaying ROS nodes.
