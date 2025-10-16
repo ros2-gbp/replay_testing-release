@@ -1,0 +1,12 @@
+Source: ros-rolling-replay-testing
+Section: misc
+Priority: optional
+Maintainer: Troy Gibb <troy@polymathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), python3-junitparser <!nocheck>, python3-pytest <!nocheck>, ros-rolling-ament-cmake, ros-rolling-ament-cmake-pytest <!nocheck>, ros-rolling-geometry-msgs <!nocheck>, ros-rolling-ros2run <!nocheck>, ros-rolling-ros2topic <!nocheck>, ros-rolling-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-rolling-replay-testing
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-boto3, python3-pydantic, python3-termcolor, ros-rolling-launch, ros-rolling-rclpy, ros-rolling-ros2bag, ros-rolling-rosbag2-py, ros-rolling-rosbag2-storage-mcap, ros-rolling-ros-workspace
+Description: A testing library and CLI for replaying ROS nodes.
