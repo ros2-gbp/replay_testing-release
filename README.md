@@ -15,6 +15,15 @@ Replay testing is simply a way to replay previously recorded data into your own 
 
 All robotics developers use replay testing in one form or another. This package just wraps many of the conventions into an easy executable.
 
+## Release Status
+
+| Distro | Dev | Doc | Src | Ubuntu x64 |
+|--------|-----|-----|-----|------------|
+| Rolling | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Rdev__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Rdev__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Rdoc__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Rdoc__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Rsrc_uN__replay_testing__ubuntu_noble__source)](https://build.ros2.org/view/Rsrc_uN/job/Rsrc_uN__replay_testing__ubuntu_noble__source/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Rbin_uN64__replay_testing__ubuntu_noble_amd64__binary)](https://build.ros2.org/view/Rsrc_uN/job/Rbin_uN64__replay_testing__ubuntu_noble_amd64__binary/) |
+| Kilted  | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Kdev__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Kdev__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Kdoc__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Kdoc__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Ksrc_uN__replay_testing__ubuntu_noble__source)](https://build.ros2.org/view/Ksrc_uN/job/Ksrc_uN__replay_testing__ubuntu_noble__source/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Kbin_unv8_uNv8__replay_testing__ubuntu_noble_arm64__binary)](https://build.ros2.org/view/Kbin_unv8_uNv8/job/Kbin_unv8_uNv8__replay_testing__ubuntu_noble_arm64__binary/) |
+| Jazzy   | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jdev__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Jdev__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jdoc__replay_testing__ubuntu_noble_amd64)](https://build.ros2.org/job/Jdoc__replay_testing__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jsrc_uN__replay_testing__ubuntu_noble__source)](https://build.ros2.org/view/Jsrc_uN/job/Jsrc_uN__replay_testing__ubuntu_noble__source/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jbin_unv8_uNv8__replay_testing__ubuntu_noble_arm64__binary)](https://build.ros2.org/view/Jbin_unv8_uNv8/job/Jbin_unv8_uNv8__replay_testing__ubuntu_noble_arm64__binary/) |
+| Humble  | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hdev__replay_testing__ubuntu_jammy_amd64)](https://build.ros2.org/job/Hdev__replay_testing__ubuntu_jammy_amd64/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hdoc__replay_testing__ubuntu_jammy_amd64)](https://build.ros2.org/job/Hdoc__replay_testing__ubuntu_jammy_amd64/) |[![Build Status](https://build.ros2.org/buildStatus/icon?job=Hsrc_uJ__replay_testing__ubuntu_jammy__source)](https://build.ros2.org/view/Hsrc_uJ/job/Hsrc_uJ__replay_testing__ubuntu_jammy__source/) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Hbin_ujv8_uJv8__replay_testing__ubuntu_jammy_arm64__binary)](https://build.ros2.org/view/Hbin_ujv8_uJv8/job/Hbin_ujv8_uJv8__replay_testing__ubuntu_jammy_arm64__binary/) |
+
 ## Usage
 
 ### CLI
@@ -136,6 +145,24 @@ When `use_clock=True` (default), the replay framework will:
 
 When `use_clock=False`, the replay will:
 - Skip `/clock` topic publishing
+
+#### Termination Condition
+
+By default, the replay will run until all messages from the input MCAP are played back.
+After that, the `run` stops immediately and the `analyze` step is executed.
+
+To wait for `run` to finish instead of stopping immediately after playback, you can set a `ignore_playback_finish` flag in `ReplayRunParams`:
+
+```python
+from replay_testing import ReplayRunParams
+
+@run.default(params=ReplayRunParams(name='default', ignore_playback_finish=True))
+class Run:
+    def generate_launch_description(self) -> LaunchDescription:
+        # Your launch description here
+        # Note: Every node in the launch description must finish on its own. Otherwise, the test will hang.
+        pass
+```
 
 ### Analyze `@analyze`
 
