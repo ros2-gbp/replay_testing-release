@@ -1,3 +1,26 @@
+## replay_testing (rolling) - 0.0.4-1
+
+The packages in the `replay_testing` repository were released into the `rolling` distro by running `/home/troy/code/polymath_ws/.venv-bloom/bin/bloom-release --rosdistro rolling replay_testing` on `Wed, 04 Feb 2026 19:57:50 -0000`
+
+The `replay_testing` package was released.
+
+Version of package(s) in repository `replay_testing`:
+
+- upstream repository: https://github.com/polymathrobotics/replay_testing.git
+- release repository: https://github.com/ros2-gbp/replay_testing-release.git
+- rosdistro version: `0.0.3-1`
+- old version: `0.0.3-1`
+- new version: `0.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## replay_testing (kilted) - 0.0.4-1
 
 The packages in the `replay_testing` repository were released into the `kilted` distro by running `/home/troy/code/polymath_ws/.venv-bloom/bin/bloom-release --rosdistro kilted replay_testing` on `Wed, 04 Feb 2026 19:56:26 -0000`
